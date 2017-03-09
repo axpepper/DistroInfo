@@ -1,13 +1,24 @@
 class DistroInfo::CLI
 
 	def call
-		commands = <<-DOC
-			list - lists the top 50 Distros this month on DistroWatch.com
-			info("Distro") - Returns Info about a given "distro"
-			
-		DOC
-		puts "This program has the following utilities:\n #{commands}"
-
+		introduction		
+		menu
 	end
 
+	def help
+		puts <<-DOC
+		This program has the following utilities:
+			list - lists the top 50 Distros this month on DistroWatch.com
+			distro - Returns Info about a given distrobution
+			help - lists commands
+		DOC
+	end
+
+	def introduction
+		puts "Welcome to DistroInfo"
+	end
+
+	def menu
+		puts "What Distro would you like information about? Type Help for more options."
+	end
 end
