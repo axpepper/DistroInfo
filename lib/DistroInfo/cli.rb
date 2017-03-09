@@ -1,6 +1,6 @@
 class DistroInfo::CLI
 
-DISTROS = ["Ubuntu","Mint","Fedora"]
+DISTROS = ["ubuntu","mint","fedora"]
 
 	def call
 		introduction		
