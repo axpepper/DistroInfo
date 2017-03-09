@@ -9,7 +9,9 @@ class DistroInfo::Scraper
 	def scrape_list
 		scraped_info = [["ubuntu","http://google.com",2],["mint","http://mint.com",1]]
 		@list = DistroInfo::DistroList.new
-		scraped_info.each{|attributes| @list.add_distro(DistroInfo::Distro.new_from_scraper[attributes])}	
+		scraped_info.each do |attributes| 
+			@list.add_distro(DistroInfo::Distro.new_from_scraper(attributes))
+		end	
 	end
 
 	def scrape_info

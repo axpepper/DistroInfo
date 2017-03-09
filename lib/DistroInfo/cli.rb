@@ -36,7 +36,7 @@ DISTROS = ["ubuntu","mint","fedora"]
 			when "help"
 				help
 			when "list"
-				puts "Top 50 Linux OSs"
+				DistroInfo::Scraper.new("https://distrowatch.com/dwres.php?resource=popularity").scrape_list
 			when -> input{@distrolist.names.include?(input)}
 				puts "Information about #{input}"
 			else  

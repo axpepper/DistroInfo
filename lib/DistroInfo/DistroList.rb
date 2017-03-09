@@ -4,9 +4,9 @@ class DistroInfo::DistroList
 	def initialize
 		@distros=[]
 	end
-	
+
 	def names
-		["ubuntu","mint","fedora"]
+		@distros.each{|distro| puts disto.name}
 	end
 
 	def add_distro(distro)
