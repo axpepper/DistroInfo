@@ -1,5 +1,7 @@
 class DistroInfo::CLI
 
+DISTROS = ["Ubuntu","Mint","Fedora"]
+
 	def call
 		introduction		
 		menu
@@ -22,8 +24,16 @@ class DistroInfo::CLI
 		input=nil
 		while input!="exit"
 			puts "What Distro would you like information about? Type Help for more options."
-			input = gets.strip
-			help
+			
+			input = gets.strip.downcase
+			case input
+			when "help"
+				help
+			when "list"
+				puts "Top 50 Linux OSs"
+			when DISTROS.include?(input)
+				puts "Information about #{input}"
+			end
 		end
 	end
 
