@@ -1,5 +1,7 @@
 class DistroInfo::CLI
 
+	attr_accessor :distrolist
+
 DISTROS = ["ubuntu","mint","fedora"]
 
 	def call
@@ -8,11 +10,13 @@ DISTROS = ["ubuntu","mint","fedora"]
 	end
 
 	def help
-		puts <<-DOC
+		puts <<~DOC
+
 		This program has the following utilities:
 			list - lists the top 50 Distros this month on DistroWatch.com
 			distro - Returns Info about a given distrobution
 			help - lists commands
+
 		DOC
 	end
 
@@ -21,9 +25,11 @@ DISTROS = ["ubuntu","mint","fedora"]
 	end
 
 	def menu
+		@distrolist = DistroInfo::DistroList.new
+
 		input=nil
 		while input!="exit"
-			puts "What Distro would you like information about? Type Help for more options."
+			puts "What Distro would you like information about? Type Help for options or exit to leave."
 			
 			input = gets.strip.downcase
 			case input 
@@ -31,8 +37,10 @@ DISTROS = ["ubuntu","mint","fedora"]
 				help
 			when "list"
 				puts "Top 50 Linux OSs"
-			when -> input{DISTROS.include?(input)}
+			when -> input{@distrolist.names.include?(input)}
 				puts "Information about #{input}"
+			else  
+				puts "Invalid Input!" if input !="exit"	
 			end
 
 		end
