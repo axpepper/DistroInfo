@@ -17,7 +17,7 @@ class DistroInfo::Distro
 	end
 
 	def self.new_from_scraper(name, url, popularity)
-		DistroInfo::DistroList.list
+		self.new(name, url, popularity)
 	end
 
 

@@ -7,7 +7,8 @@ class DistroInfo::Scraper
 	end
 
 	def scrape_list
-		info = [["ubuntu","http://google.com",2],["mint","http://mint.com",1]]	
+		scraped_info = [["ubuntu","http://google.com",2],["mint","http://mint.com",1]]
+		
 	end
 
 	def scrape_info
