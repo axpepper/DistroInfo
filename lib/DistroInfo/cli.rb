@@ -1,6 +1,6 @@
 class DistroInfo::CLI
 
-	attr_accessor :distrolist
+	attr_accessor :distrolist,:scraper
 
 DISTROS = ["ubuntu","mint","fedora"]
 
@@ -25,7 +25,9 @@ DISTROS = ["ubuntu","mint","fedora"]
 	end
 
 	def menu
-		@distrolist = DistroInfo::DistroList.new
+
+		@scraper = DistroInfo::Scraper.new("https://distrowatch.com/dwres.php?resource=popularity")
+		@distrolist = @scraper.scrape_list
 
 		input=nil
 		while input!="exit"
@@ -36,11 +38,12 @@ DISTROS = ["ubuntu","mint","fedora"]
 			when "help"
 				help
 			when "list"
-				DistroInfo::Scraper.new("https://distrowatch.com/dwres.php?resource=popularity").scrape_list
+				@distrolist.print
 			when -> input{@distrolist.names.include?(input)}
 				puts "Information about #{input}"
 			else  
 				puts "Invalid Input!" if input !="exit"	
+				puts @distrolist.names
 			end
 
 		end

@@ -6,7 +6,15 @@ class DistroInfo::DistroList
 	end
 
 	def names
-		@distros.each{|distro| puts disto.name}
+		@distros.each{|distro| distro.name}
+	end
+
+	def popularities
+		@distros.each{|distro| puts distro.popularity}
+	end
+
+	def print
+		@distros.each{|distro| puts distro.name + "\t-\t" + distro.popularity.to_s }
 	end
 
 	def add_distro(distro)

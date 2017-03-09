@@ -6,8 +6,8 @@ class DistroInfo::Distro
 	def initialize(name, url, popularity, homepage=nil, info=nil)
 		@name=name
 		@url=url
-		@homepage=homepage
 		@popularity=popularity
+		@homepage=homepage
 		@info=info
 		save
 	end	
@@ -17,7 +17,7 @@ class DistroInfo::Distro
 	end
 
 	def self.new_from_scraper(array)
-		self.new(array[0], array[1], array[3])
+		self.new(array[0], array[1], array[2])
 	end
 
 
