@@ -3,7 +3,7 @@ class DistroInfo::Distro
 	@@all = []
 	attr_accessor :name, :url, :homepage, :popularity, :info
 
-	def initialize(name, url, homepage=nil, popularity=nil, info=nil)
+	def initialize(name, url, popularity, homepage=nil, info=nil)
 		@name=name
 		@url=url
 		@homepage=homepage
@@ -15,5 +15,10 @@ class DistroInfo::Distro
 	def save
 		@@all<< self
 	end
+
+	def self.new_from_scraper(name, url, popularity)
+		DistroInfo::DistroList.list
+	end
+
 
 end
