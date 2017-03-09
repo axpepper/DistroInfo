@@ -19,6 +19,12 @@ class DistroInfo::CLI
 	end
 
 	def menu
-		puts "What Distro would you like information about? Type Help for more options."
+		input=nil
+		while input!="exit"
+			puts "What Distro would you like information about? Type Help for more options."
+			input = gets.strip
+			help
+		end
 	end
+
 end
