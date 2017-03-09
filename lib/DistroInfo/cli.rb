@@ -31,8 +31,10 @@ DISTROS = ["ubuntu","mint","fedora"]
 				help
 			when "list"
 				puts "Top 50 Linux OSs"
-			when DISTROS.include?(input)
-				puts "Information about #{input}"
+			else 
+				if DISTROS.include?(input)
+					puts "Information about #{input}"
+				end
 			end
 		end
 	end
