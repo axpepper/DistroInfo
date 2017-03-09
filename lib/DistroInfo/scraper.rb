@@ -4,12 +4,12 @@ class DistroInfo::Scraper
 
 	def initialize(url)
 		@url=url
-		@list=[]
 	end
 
 	def scrape_list
 		scraped_info = [["ubuntu","http://google.com",2],["mint","http://mint.com",1]]
-		scraped_info.each{|attributes| }	
+		@list = DistroInfo::DistroList.new
+		scraped_info.each{|attributes| @list.add_distro(DistroInfo::Distro.new_from_scraper[attributes])}	
 	end
 
 	def scrape_info
