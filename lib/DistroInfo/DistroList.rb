@@ -10,11 +10,15 @@ class DistroInfo::DistroList
 	end
 
 	def popularities
-		@distros.each{|distro| puts distro.popularity}
+		@distros.map{|distro| distro.popularity}
 	end
 
 	def print
 		@distros.each{|distro| puts distro.name + "\t-\t" + distro.popularity.to_s }
+	end
+
+	def find(name)
+		@distros.find{|distro| distro.name = name}
 	end
 
 	def add_distro(distro)

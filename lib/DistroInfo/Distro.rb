@@ -20,5 +20,9 @@ class DistroInfo::Distro
 		self.new(array[0], array[1], array[2])
 	end
 
+	def update(array)
+		@homepage=array[0]
+		@info=array[1]
+	end
 
 end
