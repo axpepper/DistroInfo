@@ -6,7 +6,7 @@ class DistroInfo::DistroList
 	end
 
 	def names
-		@distros.each{|distro| distro.name}
+		@distros.map{|distro| distro.name}
 	end
 
 	def popularities

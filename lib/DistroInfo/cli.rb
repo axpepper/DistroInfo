@@ -38,12 +38,11 @@ DISTROS = ["ubuntu","mint","fedora"]
 			when "help"
 				help
 			when "list"
-				@distrolist.print
+				puts @distrolist.names
 			when -> input{@distrolist.names.include?(input)}
 				puts "Information about #{input}"
 			else  
-				puts "Invalid Input!" if input !="exit"	
-				puts @distrolist.names
+				puts "Invalid Input!" if input !="exit"
 			end
 
 		end
