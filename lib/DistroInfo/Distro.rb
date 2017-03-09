@@ -16,8 +16,8 @@ class DistroInfo::Distro
 		@@all<< self
 	end
 
-	def self.new_from_scraper(name, url, popularity)
-		self.new(name, url, popularity)
+	def self.new_from_scraper(array)
+		self.new(array[0], array[1], array[3])
 	end
 
 
