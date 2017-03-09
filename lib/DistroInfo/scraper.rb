@@ -1,0 +1,3 @@
+class DistroInfo::Scraper
+
+end
