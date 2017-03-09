@@ -40,7 +40,9 @@ DISTROS = ["ubuntu","mint","fedora"]
 			when "list"
 				puts @distrolist.names
 			when -> input{@distrolist.names.include?(input)}
-				puts "Information about #{input}"
+				distro = @distrolist.find(input)
+				@scraper.scrape_info(distro)
+				distro.print
 			else  
 				puts "Invalid Input!" if input !="exit"
 			end

@@ -25,4 +25,11 @@ class DistroInfo::Distro
 		@info=array[1]
 	end
 
+	def print
+		puts @name
+		puts @popularity
+		puts @homepage
+		puts @info		
+	end	
+
 end

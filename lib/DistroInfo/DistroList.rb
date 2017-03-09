@@ -18,7 +18,7 @@ class DistroInfo::DistroList
 	end
 
 	def find(name)
-		@distros.find{|distro| distro.name = name}
+		@distros.find{|distro| distro.name.downcase == name}
 	end
 
 	def add_distro(distro)
