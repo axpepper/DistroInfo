@@ -26,12 +26,12 @@ DISTROS = ["ubuntu","mint","fedora"]
 			puts "What Distro would you like information about? Type Help for more options."
 			
 			input = gets.strip.downcase
-			case
-			when input == "help"
+			case input 
+			when "help"
 				help
-			when input == "list"
+			when "list"
 				puts "Top 50 Linux OSs"
-			when DISTROS.include?(input)
+			when -> input{DISTROS.include?(input)}
 				puts "Information about #{input}"
 			end
 
